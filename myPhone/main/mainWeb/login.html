@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/icon/favicon.ico" type="image/x-icon">
+    <title>登录</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            text-decoration:none;
+        }
+        body,html{height:100%;}
+        article{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            -moz-user-select: none;
+            -moz-user-drag:none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+        article.op::before
+        {
+            content:" ";
+            display:block;
+            position:absolute;
+            width:100%;
+            height:100%;
+            opacity: 0.8;
+            background-color:rgba(27, 31, 34,0.8);
+        }
+        article>.major{
+            min-width:30%;
+            min-height:28.15em;
+            border-radius:15px;
+            box-shadow:0 3px 5px #969696;
+            display:flex;
+            flex-direction:column;
+            align-items: center;
+        }
+        .remind{
+            max-width:25%;
+            max-height:12.15em;
+            border-radius:15px;
+            box-shadow:0 0px 5px #969696;
+            position:absolute;
+            background-color:rgba(236, 226, 226,0.9);
+            padding:0 15px;
+            display:none;
+            flex-direction:column;  
+            align-items: center;
+        }
+        .remind h1{
+            margin-top:2%;
+        }
+        .remind .rule{
+            margin-top:8%;
+            flex-basis: 100px;
+            max-width:70%;
+            border:2px solid rgb(204, 196, 196);
+            text-indent:2em;
+            font-size:15px;
+        }
+        .remind button{
+            min-width:20%;
+            flex-basis: 30px;
+            text-align:center;
+            border:none;
+            color: #2b342b;
+            cursor:pointer;
+            box-shadow:0 0 5px #969696;
+            margin-top:2%;
+            }
+
+        .major>header{
+            width:100%;
+            height:7.0375em;
+            border-radius:10px 10px 0 0;
+            display:flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            background-color:#bbdefb;
+        }
+        header::before{
+            content:" ";
+            display:block;
+            width:80px;
+            height:80px;
+            align-self: center;
+            border-radius:50%;
+            border:1px solid black;
+            order:2;
+        }
+        header>a{
+            display:block;
+            width:5em;
+            height:2em;
+            line-height:2em;
+            font-size:15px;
+            box-shadow:0 0 5px 0px #969696;
+            background-color:#54aff9;
+            color:white;
+            text-align:center;
+        }
+        header>a:nth-of-type(1){
+            border-radius: 0 5px 0 0;
+            order:1;
+        }
+        header>a:nth-of-type(2){
+            border-radius:5px 0 0 0;
+            order:3;
+        }
+        .major>main{width:100%;height:100%;}
+        .major>main>form{
+            width:100%;
+            height:16.89em;
+            box-sizing:content-box;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+        }
+        form>.inpBorder{
+            width:70%;
+            height:10%;
+            border:1px solid #969696;
+            border-radius:15px;
+            box-shadow:0 0 5px #969696;
+            position:relative;
+        }
+        form>.inpBorder>input{
+            width:100%;
+            height:100%;
+            border-radius:15px;
+            outline:none;
+            border:none;
+            text-indent:1em;
+            font-size:12px;
+        }
+        main>form>aside{
+            width:100%;
+            padding:5px;
+            box-sizing:border-box;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            font-size:small;
+            color:#8f8686;
+        }
+        aside>div{
+            margin-left:5px;
+        }
+        aside>a{
+            color:#235ea7;
+            
+        }
+        input[type="submit"]
+        {   
+            margin-top:30px;
+            width:70%;
+            height:10%;
+            color:#3b4348;
+            font-weight:bold;
+            text-indent:0;
+            border:none;
+            background-color:#54aff9;
+            border-radius:15px;
+        }
+        input[type="submit"]:hover
+        {   
+            transition: all 0.5s;
+            border-radius: 0px;
+        }
+        footer{
+            min-width:100%;
+            min-height:4.2em;
+            /* border:1px solid black; */
+            display:flex;
+            align-items:flex-end;
+        }
+        footer>div{
+            height:2em;
+            width:100%;
+            border-radius: 50% 50% 15px 15px;
+            background-color:#7ea8bd;
+            box-shadow:0 0 5px #969696;
+        }
+        footer>div>a{
+            display:block;
+            width:1em;
+            height:1em;
+            border-radius:50%;
+            background:#000;
+            margin:5px auto 0;
+            background-color:#2c8bd8;
+        }
+        @media screen and (max-width:860px)
+        {
+            article>.major{
+                min-width:50%;
+            }
+            header>a{
+            width:3.6em;
+            height:1.4075em;
+            line-height:1.4075em;
+            font-size:14px;
+            }
+            .remind{
+                min-width:40%;
+                min-height:12.15em;
+            }
+        }
+        @media screen and (max-width:534px)
+        {
+            article>.major{
+                min-width:70%;
+            }
+            .remind{
+                min-width:50%;
+            }
+        }
+        @media screen and (max-width:370px)
+        {
+            article>.major{
+                min-width:80%;
+            }
+            .remind{
+                min-width:60%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <article class="">
+        <section class="major">
+            <header>
+                <a href="">首页</a>
+                <a href="">注册</a>
+            </header>
+
+            <main>
+                <!-- php/login.php -->
+                <form action="" method="post">
+                    <div class="inpBorder">
+                        <input type="text" name="userName" placeholder="用户名" onblur="checkUser()">
+                        
+                    </div>
+                <br>
+                    <div class="inpBorder">
+                        <input type="email" name="userEmail" placeholder="邮箱">
+                    </div>
+                <br>
+
+                    <div class="inpBorder">
+                        <input type="password" name="userPass" placeholder="密码">
+                    </div>
+
+                <input type="submit" value="确认登录">
+
+                <br>
+
+                <aside>
+                        <div>
+                            <input type="checkbox" name="userCookie" id="ck">
+                            <label for="ck">记住我</label>
+                        </div>
+
+                    <a href="">忘记密码</a>
+                </aside>
+                </form>
+            </main>
+
+            <footer>
+                <div>
+                    <a href=""></a>
+                </div>
+            </footer>
+        </section>
+
+        <section class="remind">
+            <h1>温馨提示</h1>
+            <div class="rule">
+                用户名格式不对, 应为5~8位字符, 
+                第一位不能为数字,不能有空格
+            </div>
+            
+            <button>确定</button>
+        </section>
+    </article>
+
+    <script>
+        let oForm = document.getElementsByTagName('form')[0];
+
+        let user = document.querySelector('input[type=text]');
+        let pass = document.querySelector('input[type=password]');
+        let email = document.querySelector('input[type=email]');
+        let div_inp = document.querySelectorAll('.inpBorder');
+
+        let remind_div = document.querySelector('.remind');
+
+        let remind_butt = remind_div.querySelector('button');
+        
+        remind_butt.onclick=()=>
+        {
+            remind_div.style.display = 'none';
+        }
+        function checkUser()
+        {
+            
+            let re = /^[^\d]{1}[\w]{4,7}$/g;
+
+
+            if(!re.test(user.value))
+            {
+                // alert('用户名格式不对, 应为5~8位字符, 第一位不能为数字,不能有空格');
+                remind_div.style.display = 'flex';
+            }
+        }
+
+</script>
+</body>
+</html>

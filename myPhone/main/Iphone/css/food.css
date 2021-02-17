@@ -1,0 +1,227 @@
+*{
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none;
+}
+main{
+    width:360px;
+    height:642px;
+    background-color:#ccc;
+    overflow:hidden;
+}
+.content{
+    width:100%;
+    height:1926px;
+    position: relative;
+    transition:all .6s linear;
+}
+.content>section{
+    width:360px;
+    height:642px;
+}
+#load{
+    width:100%;
+    height:100%;
+    display:flex;
+    opacity:1;
+    justify-content:center;
+    background-color:#F27121;
+    /* #20e3b2 */
+}
+.load-page{
+    width:50%;
+    height:40%;
+    align-self:flex-end;
+    margin-bottom:30%;
+}
+.load-page>img{
+    width:82%;
+    height:54%;
+    display:block;
+    margin:0 auto 0;
+}
+.load-page>p:nth-of-type(1){font-weight:bold;margin-top:5%;}
+.load-page>p{
+    margin-top:3%;
+    text-align:center;
+    font-size:1.25em;
+    position:relative;
+}
+.load-page>p:nth-of-type(1)::after{
+    content:"";
+    transition:all .3s ease;
+    position:absolute;
+    animation:dian 1s infinite;
+}
+@keyframes dian{
+    0%{
+        content:".";
+    }
+    50%{
+        content:"..";
+    }
+    100%{
+        content:"...";
+    }
+}
+
+#rotate-pic{
+    width:500px;
+    height:500px;
+    background-image:url("../img/quan.png");
+    background-repeat:no-repeat;
+    background-size:100%;
+    position:relative;
+    margin-left:30%;
+    border-radius:50%;
+    border:1px solid black;
+    animation:rotate_pic 9s infinite linear;
+    animation-play-state:paused;
+    z-index: 5;
+}
+#rotate-pic>a{
+    display:block;
+    width:60px;
+    height:60px;
+    border:1px dotted black;;
+    border-radius:50%;
+    text-align:center;
+    line-height:60px;
+    margin-left:12px;
+    position: relative;
+    z-index: 10;
+    animation:rotate_pic 2s infinite linear;
+    animation-play-state:paused;
+}
+#page1{overflow:hidden;position:relative;  background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);}
+#page1>img{
+    position:absolute;
+    display:block;
+    width:80px;
+    height:80px;
+    top:31%;
+    left:79%;
+}
+@keyframes rotate_pic{
+    0%{
+        transform:rotate(0deg);
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+#rotate-pic>a:nth-of-type(1){top:5%; left:10%; }
+#rotate-pic>a:nth-of-type(2){left:69%;top:2%;}
+#rotate-pic>a:nth-of-type(3){left:8.5%;top:0%;}
+#rotate-pic>a:nth-of-type(4){left:67.5%;}
+#rotate-pic>a:nth-of-type(5){left:3%;}
+#rotate-pic>a:nth-of-type(6){left:40%; top:8%;}
+#page1-Text{
+    width:70%;
+    height:80px;
+    margin-left:5%;
+    font-size:1.5em;
+    text-indent:2em;
+    line-height:80px;
+}
+
+#next{
+    position:absolute;
+    width:100%;
+    height:10%;
+    bottom:0;
+    opacity:0;
+    transition:all 20s ease;
+}
+#next>img{
+    margin:0 auto 0;
+    display:block;
+    width:50px;
+    height:50px;
+    opacity:0.4;
+    transition:all .4s ease;
+}
+
+#page2-Text
+{
+    width:100%;
+    height:100%;
+    position: relative;
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: space-around;
+    align-items:center;
+
+    background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+#page2-Text>ul{
+    border:1px solid black;
+    flex:0 1 100px;
+    width:90%;
+    position:relative;
+    display:flex;
+}
+#page2-Text>ul>li{
+    flex:1 1 33%;
+    border-right:1px solid black;
+    line-height:100px;
+    text-align:center;
+    font-size:1.3em;
+}
+.change-text{
+    width:80%;
+    flex:0 1 160px;
+    border:1px solid black;
+    overflow:hidden;
+}
+.change-text > .small-box{
+    width:100%;
+    height:160px;
+    transition:all .4s linear;
+}
+.change-text  .select{
+    width:100%;
+    height:160px;
+    background-size:100%;
+    background-repeat:no-repeat;
+}
+.change-text .select:nth-of-type(1){background-image:url(../img/xuan.jpg);}
+.change-text .select:nth-of-type(2){background-image:url(../img/gir_boy.jpg);}
+.change-text .select:nth-of-type(3){background-image:url(../img/girl_seafloor.jpg);}
+#page3{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    background:linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+.page3-Text{
+    flex:0 1 80%;
+    height:20%;
+    text-indent:2em;
+    box-sizing:border-box;
+    padding:10px;
+    line-height:35px;
+    align-self:center;
+    font-size:1.4em;
+}
+.more{
+    flex:0 1 70%;
+    height:20%;
+    font-size:1.2em;
+    display:flex;
+    flex-direction:column;
+    align-items:end;
+    justify-content: end;
+}
+.more>p{
+    margin-right:15px;
+    margin-bottom:20px;
+}
+.more>p>a{
+    color:black;
+    font-size:0.9em;
+    border-bottom:1px solid black;
+}

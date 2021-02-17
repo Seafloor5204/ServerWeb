@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js.js"></script>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            text-decoration:none;
+        }
+        article{
+            width:360px;
+            height:642px;
+            position:relative;
+            overflow:hidden;
+        }
+        #page{
+            width:100%;
+            height:100%;
+            position:absolute;
+            z-index: 1;
+        }
+        #page>section{
+            width:360px;
+            height:642px;
+            float:left;
+        }
+        #main-page{background: #9DC8C8}
+        #page>section:nth-of-type(2){background:#69b076}
+        #page>section:nth-of-type(3){background:#5654a2}
+        #Btn{
+            background:#88ada6;
+            width:100%;
+            height:10%;
+            bottom:0;
+            position:absolute;
+            display:flex;
+            align-items:center;
+            z-index: 3;
+        }
+        #Btn>li{
+            flex:1 1 30%;
+            min-height:100%;
+            display:flex;
+            font-size:1.1em;
+            border-right:1px solid #165e83;
+            align-items:center;
+            justify-content:center;
+            color:#3b4348;
+        }
+        #Btn>li:last-child{border:none;}
+        #more{
+            position:absolute;
+            width:100%;
+            height:40%;
+            background: rgba(88, 201, 185,1);
+            z-index: 10;
+            top:-32%;
+        }
+        #more>ul{
+            display:flex;
+            width:100%;
+            height:80%;
+            flex-direction:column;
+            align-items:center;
+            justify-content:space-evenly;
+        }
+        #more>ul>li{
+            border-radius:3%;
+            box-shadow:0 0 2px #000;
+            height:20%;
+            width:50%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+        }
+        #more>ul>li>a{
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#3b4348;
+        }
+        #show{
+            width:100%;
+            height:20%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        #show>img{width:24px;height:24px; cursor:pointer; margin-left:4%;}
+        #more>ul>li:nth-of-type(1){background:#ee827c}
+        #more>ul>li:nth-of-type(2){background:#f0908d}
+        #more>ul>li:nth-of-type(3){background:#f2a0a1}
+        #main-page {
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        .music{
+            margin-top:18%;
+            position:fixed;
+            right:15px;
+            box-shadow: 0 0 3px rgb(39, 34, 34);
+            width:10%;
+            height:5%;
+            border:1px solid black;
+            display:flex;
+            justify-content:center;
+        }
+        .music>img{
+            width:32px;
+            height:32px;
+            display:inline-block;
+            animation-name:sway;
+            animation-timing-function:ease-in-out;
+            animation-duration:1s;
+            animation-iteration-count:infinite;
+            animation-direction:alternate;
+            animation-play-state:paused;
+        }
+        .sentence{
+            width:70%;
+            min-height:20%;
+            margin-top:60%;
+            font-size:1.2em;
+            font-family: 'Courier New', Courier, monospace;
+            line-height:25px;
+            text-indent:2em;
+        }
+        .sentence>img{
+            width:16.8px;
+            height:16.8px;
+            display:inline-block;
+        }
+        @keyframes sway{
+            0%{
+                transform:rotate(-20deg);
+            }
+            100%{
+                transform:rotate(20deg);
+            }
+        }
+
+    </style>
+    <script>
+        window.onload=()=>
+        {
+            oPage_width();
+            varyPage();
+            loadMusic();
+            loadText();
+            dropPage();
+
+            // let oTest = document.querySelector('.test');
+
+            // oTest.innerHTML =`height:${window.innerHeight}, width${window.innerWidth}}`;
+            // oTest.innerHTML += `<br/> height:${document.documentElement.clientHeight}, width${document.documentElement.clientWidth}`;
+
+        }
+
+    </script>
+</head>
+<body>
+    <article>
+        <div id="more">
+            <ul>
+                <li><a href="main/mainWeb/index.html">主页</a></li>
+                <li><a href="main/mainWeb/login.html">登录</a></li>
+                <li><a href="main/Iphone/index.html">关于</a></li>
+            </ul>
+            <div id="show"> <img src="img/more.png" alt=""></div>
+        </div>
+
+        <div id="page">
+            <div class="music"><img src="img/Music.png" alt=""></div>
+            <section id="main-page">
+                <div class="sentence"></div>
+            </section>
+
+            <section class="test"></section>
+            <section></section>
+        </div>
+
+        <ul id="Btn">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </article>
+</body>
+</html>

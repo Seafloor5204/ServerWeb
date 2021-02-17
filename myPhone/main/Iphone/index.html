@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="./js/food.js"></script>
+    <script>
+        window.onload=()=>
+        {
+            loadingPage();
+            music_on();
+            varyPage();
+            data_hito();
+            slid();
+
+            const click_a = document.querySelector('.more>p>a');
+
+            click_a.addEventListener('click', function()
+            {
+                data_poem();
+            })
+
+
+        }
+
+
+    </script>
+    <link rel="stylesheet" href="./css/food.css">
+</head>
+<body>
+    <main>
+            <section id="load">
+                <div class="load-page">
+                    <img src="img/Food Icons-12.png" alt="">
+                    <p>Loading</p>
+                    <p>0%</p>
+                </div>
+            </section>
+
+            <article class="content">
+
+                <section id="page1">
+                                    
+
+
+                    <img src="./img/wyy.png" alt="">
+                    <audio class="music" >
+                        <source src="music/bgm2.mp3">
+                    </audio>
+                    <div id="rotate-pic">
+                        <a href="javascript:;">0</a>
+                        <a href="javascript:;">1</a>
+                        <a href="javascript:;">2</a>
+                        <a href="javascript:;">3</a>
+                        <a href="javascript:;">4</a>
+                        <a href="javascript:;">5</a>
+                    </div>
+
+                    <div id="page1-Text">
+                        点击播放音乐!
+                    </div>
+                </section>
+
+                <section id="page2">
+                    <div id="page2-Text">
+
+                        <div class="change-text">
+                            <div class="small-box">
+                                <div class="select"></div>
+                                <div class="select"></div>
+                                <div class="select"></div>
+                            </div>
+                        </div>
+
+
+                        <ul>
+                            <li> 图一</li>
+                            <li> 图二</li>
+                            <li> 图三</li>
+                        </ul>
+
+                    </div>
+                </section>
+
+                <section id="page3">
+                    <div class="page3-Text">
+                        加载中...
+                    </div>
+
+                    <div class="more">
+                        <p><a href="javascript:;">来一句诗词?</a></p>
+                    </div>
+                </section>
+
+                
+            </article>
+
+            <div id="next">
+                <img src="img/1.png" alt="">
+            </div>
+    </main>
+</body>
+</html>
