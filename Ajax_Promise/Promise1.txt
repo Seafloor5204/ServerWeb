@@ -1,0 +1,54 @@
+﻿Promise js里的特殊对象
+	let Promise = new Promise(x)
+	构造器里为一个方法(executor执行人), 方法有两个参数
+
+1. 方法(executor)会自己执行, 
+	执行一些(结果需要等一会才知道的代码,例ajax请求,定时器)
+	也可以执行立即获得结果的程序
+	在执行完后, 成功调用参数一( resolve(value) ) 如果程序有返回的结果则传入 value
+	当然, 失败调用参数二( reject(error) ) 程序失败传入失败信息,  返回 error
+	value && error 是我自己传的值.......
+
+2. 构造器返回的对象, 有以下内部属性,
+	属性       初始状态    成功      ||   失败
+	state =>   pending     fulfilled      rejected
+	result=>   undefind    value          error
+	属性有为内部属性, 不能直接调用
+	
+2.1 state初始为pending
+    当调用完resolve后， state为fulfailled
+    当调用完reject后 ,statr为rejected(二选一状态)
+    另一种说法, promise在初始时pending, 在执行resolve/reject后称为settled(定居)不能再次改变
+
+2.2 result初始为undefind
+    当调用完resolve(value)后, result为value
+    当调用完reject(error)后， result为error
+    外面then内函数的参数为result	    
+    此处的调用指executor内的调用, 只能调用一次改变状态
+
+2.3 state,result 可以由构造器返回的对象的方法调用
+     then()方法
+	该方法有两个参数，
+	当调用成功时, 执行第一个(参数)函数， 该函数会有一个值, 就是result,
+	当调用失败时, 执行第二个(参数)函数， 该函数会有一个值, 就是error,
+	函数的值,  为executor方法内执行resolve或者reject
+	如果只对成功感兴趣, 可以只提供一个参数
+	如果只对失败感兴趣, 可以使用then(null, Function) 或者 catch(Function)
+
+3.2 catch()方法
+	then(null, Function) === catch(Function)
+
+3.3 finally()方法
+	在promise 为satlled时执行, 并不一定要处理什么promise的结果， 
+	执行一些不管成功或失败都应该执行的语句, 
+	在执行完finally后, finally会将promise的结果(vlaue/error)传递
+	下去，由then或catch处理
+
+4.promise为pending状态, then/catch/finally就要等待promise,
+直到变为setlled
+
+5.当executor方法内resolve或者reject不传递参数, 则在外面的then方法就没有参数
+
+
+
+

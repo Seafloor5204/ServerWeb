@@ -1,0 +1,96 @@
+
+if(!getCookie('date'))
+{
+    //判断有无cookie, 无执行这块
+    cookieNull();
+}
+else
+{
+    //有cookie, 继续判断
+
+    let oldDate = getCookie('import_Time');
+
+    //获取写cookie, 一起存进去的 写入时间搓
+    let oDate = new Date();
+
+    if((oDate - oldDate) > 1000 * 60 * 10)//判断当时写入时间戳 与 现在的时间段, 小于10分钟， 则重新获取,
+    {
+        console.log('超时, 重新获取');
+        cookieNull(true);
+    }
+    
+    writeHTML(); //如果获取到数据, 或者没有获取到, 都不重要, 能进来, 就说明有cookie, 便写进去
+    
+}
+
+
+//过期时间
+//8328273 //setDate,为cookied的最大过期时间, 为当天晚上的23:59:59，- 现在的时间
+console.log(document.cookie);
+
+//写入时间
+//1611582070786 //写入cookied的时间
+
+function cookieNull(x=false)
+        {
+            //cookie需要重新计算的情况
+
+                let weaEn = ['city','date','week','wea','air_level'];
+                let pro = Ajax('https://v0.yiketianqi.com/api?version=v61&appid=87127569&appsecret=aly23QOk');
+                pro.then(
+                value=>{
+                    //Ajax获取API数据,
+                    console.log('获取成功, 写入');
+                    return eval('('+value+')');
+                    //把文字API 转 js对象,
+                })
+                .then(
+                    data=>
+                    {
+                        //data为上面传下来的参数, obj
+                        //信息处理
+                        if(x)
+                        deleteCookie('import_Time');
+                        //x 默认为假， 为真的情况, 需要删除写入时间搓,
+
+                        let oDate = new Date();
+                        let oDate2 = new Date(oDate);
+
+                        oDate2.setHours(23,59,59,59);
+
+                        let setDate = oDate2 - oDate;
+
+                        //取当前日期的时间戳, 再取今晚上11.59的时间戳, 即为cookie过期时间
+
+
+                        setCookie('import_Time',oDate.getTime(), {'max-age': setDate});
+                        //设置cookie, 
+
+
+                        if(data['import_Time'])
+                        {
+                            //时间戳存在, 则写入天气cookie
+                            console.log('信息准备写入');
+                            for(let k of weaEn)
+                            {
+                                setCookie(k, data[k], {'max-age': setDate});
+                            }
+                        }
+                        writeHTML();//把cookie写入到页面
+                    }
+                )
+
+            }
+
+    function writeHTML()
+    {
+        let oDiv_22 = document.querySelector('.ov4>div');
+        let weaEn = ['city','date','week','wea','air_level'];
+        let tag_zh = ['日期', '星期', '城市','天气','空气'];
+            //使用cookie写内容
+            oDiv_22.innerHTML = "";
+            for(let i = 0;i < weaEn.length;i++)
+            {
+                oDiv_22.innerHTML += `<li>${tag_zh[i]}: ${getCookie(weaEn[i])}</li>`;
+            }
+    }
