@@ -14,7 +14,7 @@
             text-decoration:none;
         }
         article{
-            width:360px;
+            width:360px;   
             height:642px;
             position:relative;
             overflow:hidden;
@@ -106,7 +106,7 @@
         }
         .music{
             margin-top:18%;
-            position:fixed;
+            position:absolute;
             right:15px;
             box-shadow: 0 0 3px rgb(39, 34, 34);
             width:10%;
@@ -114,6 +114,7 @@
             border:1px solid black;
             display:flex;
             justify-content:center;
+            z-index: 4;
         }
         .music>img{
             width:32px;
@@ -135,10 +136,19 @@
             line-height:25px;
             text-indent:2em;
         }
-        .sentence>img{
+        #message>img, #from>bdo>img{
             width:16.8px;
             height:16.8px;
             display:inline-block;
+        }
+        #from{
+            margin-top:19px;
+            min-width:100%;
+            height:20%;
+            text-indent:0;
+            position:relative;
+            display:flex;
+            justify-content: flex-end;
         }
         @keyframes sway{
             0%{
@@ -148,25 +158,20 @@
                 transform:rotate(20deg);
             }
         }
-
     </style>
-    <script>
-        window.onload=()=>
-        {
-            oPage_width();
-            varyPage();
-            loadMusic();
-            loadText();
-            dropPage();
-
-            // let oTest = document.querySelector('.test');
-
-            // oTest.innerHTML =`height:${window.innerHeight}, width${window.innerWidth}}`;
-            // oTest.innerHTML += `<br/> height:${document.documentElement.clientHeight}, width${document.documentElement.clientWidth}`;
-
-        }
-
-    </script>
+        <script>
+            window.onload=()=>
+            {
+                    oPage_width();
+                    varyPage();
+                    loadMusic();
+                    loadText(2);
+                    //1 ==> music 评论
+                    //2 ==> sentence
+                    dropPage();
+            }
+    
+        </script>
 </head>
 <body>
     <article>
@@ -178,14 +183,17 @@
             </ul>
             <div id="show"> <img src="img/more.png" alt=""></div>
         </div>
-
+        <div class="music"><img src="img/Music.png" alt=""></div>
         <div id="page">
-            <div class="music"><img src="img/Music.png" alt=""></div>
             <section id="main-page">
-                <div class="sentence"></div>
+                <div class="sentence">
+                    <div id="message"></div>
+                <div id="from">
+                    <bdo dir="rtl"></bdo>
+                </div>
+                </div>
             </section>
-
-            <section class="test"></section>
+            <section></section>
             <section></section>
         </div>
 

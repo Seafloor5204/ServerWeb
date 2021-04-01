@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXL</title>
+    <script src="js/myFuntion.js" async></script>
+    <link rel="Shortcut" href="img/1.ico">
+    <link rel="Bookmark" href="img/1.ico">
+    <link rel="shortcut icon" href="img/1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        window.onload=()=>
+        {
+            //1 点击more, show(nav), 
+            slip();
+            //2 页面load, 获取语句
+            loadText('https://v1.hitokoto.cn',0);
+        }
+    </script>
+</head>
+<body class="select" oncontextmenu="window.event.returnValue=false;" oncopy="return false">
+    <article id="box">
+        <header>
+            <div id="title">
+                <img src="img/more.png" alt="">
+                <a href="">LXL</a>
+            </div>
+            <ul id="nav">
+                <li><a href="javascript:;">主页</a></li>
+                <li><a href="note.html">随笔</a></li>
+                <li><a href="cal.html">速算</a></li>
+                <li><a href="javascript:;">关于博客</a></li>
+            </ul>
+        </header>
+
+        <nav id="slip">
+            <ul>
+                <li><a href="javascript:;">主页</a></li>
+                <li><a href="note.html">随笔</a></li>
+                <li><a href="cal.html">速算</a></li>
+                <li><a href="calendar.html">日历</a></li>
+                <li><a href="javascript:;">作品展示</a></li>
+                <li><a href="javascript:;">关于博客</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="content">&nbsp;</div>
+            <div id="from">&nbsp;</div>
+        </main>
+
+        <footer>
+            
+            <div id="more">
+                这是一个简单的个人博客.
+            </div>
+            <div id="Bei">
+                <a href="https://beian.miit.gov.cn/" target="_blank">渝ICP备2021001737号</a>
+                <img src="img/备案图标.png" alt="">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50011502000597" >渝公网安备 50011502000597号</a>
+            </div>
+        </footer>
+    </article>
+    <script src="js/slide.js"></script>
+</body>
+</html>

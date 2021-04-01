@@ -169,22 +169,26 @@ function startMove_json(obj,json,s,fn)
     }
     
 
-    function loadText()
+    function loadText(x)
             {
-                fetch("https://v1.jinrishici.com/all.json")
-            .then(
-                response=>response.json()
-            )
-            .then(
-                v=>write_Text(v['content'])
+                let url;
+                x===1?url="https://api.66mz8.com/api/music.163.php":url="https://v1.hitokoto.cn";
+                fetch(url)
+                .then(
+                    response=>response.json()
+                )
+                .then(
+                    v=>{
+                        x===1?write_Text(v['comments'], v['name']):write_Text(v['hitokoto'], v['from']);
+                    },
+                    e=>console.log(e)
             )
 
 
             
-            function write_Text(v)
+            function write_Text(v, v2)
             {
-                let oText = document.getElementsByClassName('sentence')[0];
-
+                let oText = document.querySelector('#message');
                 let arr = v.split('');
                 let i = 0;
                 let aImg = [];
@@ -193,7 +197,7 @@ function startMove_json(obj,json,s,fn)
                 {
                     if(arr[i])
                     {
-                        aImg[i] = createImg("img/love.png",oText);
+                        aImg[i] = createImg("img/love.png");
                         oText.append(arr[i]);
 
                         oText.append(aImg[i]);
@@ -202,6 +206,36 @@ function startMove_json(obj,json,s,fn)
                     }
                     else
                     {
+                        let op = document.querySelector('#from>bdo');
+                        let end = 
+                        {
+                            timer:null,
+                            text:v2.split(''),
+                            img:[]
+                        };
+                        let j = 0;
+                        end.text.reverse();
+                        end.timer= setInterval(function()
+                        {
+                            
+                            if(end.text[j])
+                            {
+                                end.img[j] = createImg("img/love.png");
+                                op.append(end.text[j]);
+                                op.append(end.img[j]);
+                                if(j != 0)
+                                op.removeChild(end.img[j-1]);
+                            }
+                            else
+                            {
+                                op.removeChild(end.img[end.img.length-1]);
+                                clearInterval(end.timer);
+                            }
+                            j++;
+                        },300)
+
+ 
+
                         clearInterval(timer2);
                     }
 

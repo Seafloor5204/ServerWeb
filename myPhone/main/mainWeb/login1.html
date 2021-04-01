@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXL</title>
+    <script src="js/myFuntion.js" async></script>
+    <link rel="shortcut icon" href="img/1.ico" type="image/x-icon">
+    <script>
+        window.onload=()=>
+        {
+            //1 点击more, show(nav), 
+            slip();
+        }
+    </script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            text-decoration:none;
+        }
+        html,body{height:100%;}
+        #box{width:100%;height:100%; background:rgba(230,230,230,0.5); position:relative;}
+        header{
+            width:100%;
+            height:7%;
+            position: relative;
+        }
+        #title{
+            width:16%;
+            height:inherit;
+            position:fixed;
+            display:flex;
+            align-items: center;
+            justify-content:space-evenly;
+            font-weight:bold;
+            font-size:1.3em;
+            top:25px;
+        }
+        #title>img{
+            cursor:pointer;
+            width:28px;
+            height:28px;
+        }
+        #nav{
+            float:right;
+            width:60%;
+            height:100%;
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        main{
+            width:100%;
+            height:85%;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        #content{
+            width:25%;
+            background:#ccc;
+            border-radius:5%;
+        }
+        footer{
+            width:100%;
+            height:8%;
+        }
+        #more{
+            padding-top:10px;
+            width:100%;
+            height:40%;
+            box-sizing:border-box;
+            padding-left:20px;
+        }
+        #Bei{
+            width:100%;
+            height:55%;
+            display:flex;
+            justify-content:flex-end;
+            align-items:center;
+            box-sizing:border-box;
+            padding-right:30px;
+        }
+        a{color:#8a8280;}
+        #slip{
+            width:15%;
+            height:60%;
+            top:15%;
+            position: fixed;
+            left:-15%;
+            background:rgba(210,210,210,0.5);
+            z-index: 3;
+            /* transition:all .7s ease-in-out; */
+        }
+        #slip>ul
+        {
+            width:100%;
+            height:100%;
+            display:flex;
+            flex-direction:column;
+            justify-content:space-evenly;
+        }
+        #slip>ul>li
+        {
+            box-sizing:border-box;
+            padding-left:25px;
+        }
+        #slip>ul>li>a{color:dimgray;}
+        #content>form{
+            width:100%;
+            height:16.89em;
+            position:relative;
+            left:50%;
+            transform:translateX(-50%);
+            box-sizing:content-box;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+        }
+        form>.inpBorder{
+            width:70%;
+            height:10%;
+            border:1px solid #969696;
+            border-radius:15px;
+            box-shadow:0 0 5px #969696;
+            position:relative;
+        }
+        form>.inpBorder>input{
+            width:100%;
+            height:100%;
+            border-radius:15px;
+            outline:none;
+            border:none;
+            text-indent:1.2em;
+            font-size:12px;
+        }
+        #content aside{
+            width:100%;
+            padding:5px;
+            box-sizing:border-box;
+            display:flex;
+            justify-content: space-between;
+            align-items:center;
+            font-size:small;
+            color:#8f8686;
+        }
+        input[type="submit"]
+        {   
+            margin-top:30px;
+            width:70%;
+            height:10%;
+            color:#3b4348;
+            font-weight:bold;
+            text-indent:0;
+            border:none;
+            background-color:#54aff9;
+            border-radius:15px;
+        }
+        input[type="submit"]:hover
+        {   
+            transition: all 0.5s;
+            border-radius: 0px;
+        }
+        aside>div{
+            margin-left:5px;
+        }
+        aside>a{
+            color:#235ea7;
+            
+        }
+        .foot{
+            min-width:100%;
+            min-height:4.2em;
+            /* border:1px solid black; */
+            display:flex;
+            align-items:flex-end;
+        }
+        .foot>div{
+            height:2em;
+            width:100%;
+            border-radius: 50% 50% 15px 15px;
+            background-color:#7ea8bd;
+            box-shadow:0 0 5px #969696;
+        }
+        .foot>div>a{
+            display:block;
+            width:1em;
+            height:1em;
+            border-radius:50%;
+            background:#000;
+            margin:5px auto 0;
+            background-color:#2c8bd8;
+        }
+        .hea{
+            width:100%;
+            height:7.0375em;
+            border-radius:10px 10px 0 0;
+            display:flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            background-color:#bbdefb;
+        }
+        .hea::before{
+            content:" ";
+            display:block;
+            width:80px;
+            height:80px;
+            align-self: center;
+            border-radius:50%;
+            border:1px solid black;
+            order:2;
+            background-image: url(img/icon/wechat.png);
+            background-repeat:no-repeat;
+            background-size: 100%;
+        }
+        .hea>a{
+            display:block;
+            width:5em;
+            height:2em;
+            line-height:2em;
+            font-size:15px;
+            box-shadow:0 0 5px 0px #969696;
+            background-color:#54aff9;
+            color:white;
+            text-align:center;
+        }
+        .hea>a:nth-of-type(1){
+            border-radius: 0 5px 0 0;
+            order:1;
+        }
+        .hea>a:nth-of-type(2){
+            border-radius:5px 0 0 0;
+            order:3;
+        }
+        .inpBorder:nth-of-type(1)
+        {
+            margin-top:40px;
+        }
+        @media screen and (max-width:840px)
+        {
+            #slip{width:25%; top:10%; font-size:0.8em; left:-40%;}
+            .hea>a{
+            width:3.6em;
+            height:1.4075em;
+            line-height:1.4075em;
+            font-size:14px;
+            }
+        }
+        @media screen and (max-width:600px)
+        {
+            #slip{width:27%; top:10%; font-size:0.8em; left:-40%;}
+        }
+        @media screen and (max-width:500px)
+        {
+            header{
+                height:5%;
+            }
+            #nav{display:none;}
+            #title{width:30%; left:7px;}
+            footer{font-size:0.8em;}
+            #more{padding-top:5px;}
+            #Bei{ padding-right:0; display:block; text-align:right;}
+            #slip{width:40%; top:10%; font-size:0.8em; left:-40%;}
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <article id="box">
+        <header>
+            <div id="title">
+                <img src="img/more.png" alt="">
+                <a href="">LXL</a>
+            </div>
+            <ul id="nav">
+                <li><a href="#">主页</a></li>
+                <li><a href="#">随笔</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">关于博客</a></li>
+            </ul>
+        </header>
+
+        <nav id="slip">
+            <ul>
+                <li><a href="#">主页</a></li>
+                <li><a href="#">随笔</a></li>
+                <li><a href="#">登录</a></li>
+                <li><a href="#">图片</a></li>
+                <li><a href="#">作品展示</a></li>
+                <li><a href="#">关于博客</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="content">
+
+                <div class="hea">
+                    <a href="">首页</a>
+                    <a href="">注册</a>
+                </div>
+                <form action="" method="post">
+                    <div class="inpBorder">
+                        <input type="text" name="userName" placeholder="用户名" onblur="checkUser()">
+                        
+                    </div>
+                <br>
+                    <div class="inpBorder">
+                        <input type="email" name="userEmail" placeholder="邮箱">
+                    </div>
+                <br>
+
+                    <div class="inpBorder">
+                        <input type="password" name="userPass" placeholder="密码">
+                    </div>
+
+                <input type="submit" value="确认登录">
+
+                <br>
+
+                <aside>
+                        <div>
+                            <input type="checkbox" name="userCookie" id="ck">
+                            <label for="ck">记住我</label>
+                        </div>
+
+                    <a href="">忘记密码</a>
+                </aside>
+  
+                </form>
+
+                <div class="foot">
+                    <div>
+                        <a href=""></a>
+                    </div>
+                </div>  
+
+
+            </div>
+        </main>
+
+        <footer>
+            
+            <div id="more">
+                这是一个简单的个人博客.
+            </div>
+            <div id="Bei">
+                <a href="">渝公网安备 33010602019975号&nbsp;</a>
+                <br>
+                <a href="">渝公网安备 33010602019975号&nbsp;</a>
+            </div>
+        </footer>
+
+    </article>
+    <script src="js/slide.js"></script>
+</body>
+</html>

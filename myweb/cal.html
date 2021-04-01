@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXL</title>
+    <script src="js/myFuntion.js" async></script>
+    <link rel="Shortcut" href="img/1.ico">
+    <link rel="Bookmark" href="img/1.ico">
+    <link rel="shortcut icon" href="img/1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/cal.css">
+    <script>
+        window.onload=()=>
+        {
+            //1 点击more, show(nav), 
+            slip();
+            main();
+            
+        }
+    </script>
+</head>
+<body class="select" oncontextmenu="window.event.returnValue=false;" oncopy="return false">
+    <article id="box">
+        <header>
+            <div id="title">
+                <img src="img/more.png" alt="">
+                <a href="">LXL</a>
+            </div>
+            <ul id="nav">
+                <li><a href="index.html">主页</a></li>
+                <li><a href="note.html">随笔</a></li>
+                <li><a href="cal.html">速算</a></li>
+                <li><a href="#">关于博客</a></li>
+            </ul>
+        </header>
+
+        <nav id="slip">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="note.html">随笔</a></li>
+                <li><a href="cal.html">速算</a></li>
+                <li><a href="#">图片</a></li>
+                <li><a href="#">作品展示</a></li>
+                <li><a href="#">关于博客</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="content">
+                <div class="t">
+                    <ul>
+                        <li class="exper"></li>
+                        <li class="answer">
+                            <input type="text">
+                        </li>
+                        <li>确认</li>
+                    </ul>
+                </div>
+                <div class="f c3">
+                    <ul>
+                        <li class="exper"></li>
+                        <li class="answer">
+                            <input type="text">
+                        </li>
+                        <li>确认</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </article>
+    <script src="js/slide.js"></script>
+    <script src="js/cal.js"></script>
+</body>
+</html>

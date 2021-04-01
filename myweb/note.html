@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LXL</title>
+    <script src="js/myFuntion.js" async></script>
+    <link rel="shortcut icon" href="img/1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="css/note.css">
+    <script>
+        window.onload=()=>
+        {
+            slip();
+            loadText('https://v1.hitokoto.cn',0);
+        }
+    </script>
+</head>
+<body class="select">
+    <article id="box">
+        <header>
+            <div id="title">
+                <img src="img/more.png" alt="">
+                <a href="">LXL</a>
+            </div>
+            <ul id="nav">
+                <li><a href="index.html">主页</a></li>
+                <li><a href="javascript:;" class="active">随笔</a></li>
+                <li><a href="cal.html">速算</a></li>
+                <li><a href="#">关于博客</a></li>
+            </ul>
+        </header>
+
+        <nav id="slip">
+            <ul>
+                <li><a href="index.html">主页</a></li>
+                <li><a href="javascript:;" class="active">随笔</a></li>
+                <li><a href="cal.html">速算</a></li>
+                <li><a href="calendar.html">日历</a></li>
+                <li><a href="#">作品展示</a></li>
+                <li><a href="#">关于博客</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div id="major">
+                <section class="template">
+                    <p>C语言字符串</p>
+                    <div>字符串是以空字符(\0)结尾的char类型的数组
+                        2.定义字符串的方法(字符串常量, char类型数组, 指向char的指针)
+                        3.char * str = "string is write This";</div>
+                    <p><time>2021-2-24</time>点赞|反馈|查看</p>
+                </section>
+                <section class="template">
+                    <p>HTML+css实现三角</p>
+                    <div>
+                        在HTML中最常见的就是矩形, 但偶尔也会用到三角形, 可能有的同学会用图片来代替,
+                        但其实在HTML中可以设置元素的border来达到三角形的效果.
+                    </div>
+                    <p><time>2021-2-24</time>点赞|反馈|查看</p>
+                </section>
+                <section class="template">
+                    <p>Promise 调用链</p>
+                    <div>1. 基于一个Promise对象
+                        大致为promise对象的方法then(), 
+                        方法里返回的参数会传给下一个处理程序.then
+                        3.处理程序(then)会返回一个promise对象, 所以可以在Promise.then()的基础是再.then()
+                            另外, 在处理程序中返回的值(即第二点)</div>
+                    <p><time>2021-2-24</time>点赞|反馈|查看</p>
+                </section>
+                <div class="next">下一页</div>
+            </div>
+
+            <div id="bulletin">
+                <section class="public">
+                    <p class="title select">公告</p>
+                    <article>
+                        <div id="content" >&nbsp;</div>
+                        <div id="from">&nbsp;</div>
+                    </article>
+
+                    <article>
+                        <div></div>
+                    </article>
+                    
+                </section>
+                <section id="tag">
+                    <p class="title">标签</p>
+                    <article class="list">
+                        <ul>
+                            <li>C</li>
+                            <li>JavaScript</li>
+                            <li>SQL</li>
+                            <li>C#</li>
+                            <li>PHP</li>
+                        </ul>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            
+            <div id="more">
+                这是一个简单的个人博客.
+            </div>
+            <div id="Bei">
+                <a href="https://beian.miit.gov.cn/" target="_blank">渝ICP备2021001737号</a>
+                <img src="img/备案图标.png" alt="">
+                <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=50011502000597" >渝公网安备 50011502000597号</a>
+            </div>
+        </footer>
+
+    </article>
+    <script src="../js/slide.js"></script>
+</body>
+</html>
