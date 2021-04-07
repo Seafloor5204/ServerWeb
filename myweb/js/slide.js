@@ -1,7 +1,7 @@
 
 function slip()
 {
-    let oMore = document.querySelector('#title>img');
+    let oMore = document.querySelector('#title');
     let oSlip = document.getElementById('slip');
     let oBox = document.getElementById('box');
     // <!-- title, main, footer -->
@@ -9,7 +9,7 @@ function slip()
     let x = !0;
     oMore.addEventListener('click',e=>
     {
-        var oEvent = e||event;
+        var oEvent = e||Event;
         x?(oSlip.style.opacity=1,initial = parseInt(getStyle(oSlip,'left')),startMove_json(oSlip,{left:0},9)):(startMove_json(oSlip,{left:initial},9,()=>{startMove_json(oSlip,{opacity:0},9)}));
         x=!x;
 
