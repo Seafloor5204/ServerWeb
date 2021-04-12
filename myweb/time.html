@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time</title>
+    <script src="js/myFuntion.js"></script>
+    <link rel="stylesheet" href="css/time.css">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            list-style:none;
+            text-decoration:none;
+        }
+        .select
+        {
+            -webkit-user-drag: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -webkit-touch-callout:none;
+            -khtml-user-select:none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+    <script>
+        window.onload=()=>
+        {
+            t();
+            writeTime();
+        }
+    </script>
+</head>
+<body class="select" oncontextmenu="window.event.returnValue=false;" oncopy="return false">
+    <article id="box">
+        <div id="time">
+            <section>
+                <ul>
+                    <li>0</li>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>0</li>
+                    <li>9</li>
+                    <li>8</li>
+                    <li>7</li>
+                    <li>6</li>
+                    <li>5</li>
+                    <li>4</li>
+                    <li>3</li>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>0</li>
+                    <li>5</li>
+                    <li>4</li>
+                    <li>3</li>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>0</li>
+                    <li>9</li>
+                    <li>8</li>
+                    <li>7</li>
+                    <li>6</li>
+                    <li>5</li>
+                    <li>4</li>
+                    <li>3</li>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>0</li>
+                    <li>5</li>
+                    <li>4</li>
+                    <li>3</li>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li>0</li>
+                    <li>9</li>
+                    <li>8</li>
+                    <li>7</li>
+                    <li>6</li>
+                    <li>5</li>
+                    <li>4</li>
+                    <li>3</li>
+                    <li>2</li>
+                    <li>1</li>
+                    <li>0</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="month"></div>
+    </article>
+    <script src="js/time.js" async></script>
+</body>
+</html>
